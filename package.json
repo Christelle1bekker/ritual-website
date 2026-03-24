@@ -1,0 +1,8 @@
+{
+  "name": "ritual-website",
+  "version": "1.0.0",
+  "description": "Ritual landing page",
+  "scripts": {
+    "start": "npx serve public"
+  }
+}
