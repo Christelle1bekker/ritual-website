@@ -836,6 +836,12 @@
       overflow: hidden;
     }
 
+    .founders-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
     .founders-photo::after {
       content: '';
       position: absolute;
@@ -1155,6 +1161,7 @@
             <div class="stat-big">58%</div>
             <div class="stat-label">higher success rate</div>
             <p class="stat-desc">People who linked habits to physical cues and locations had significantly higher success rates than those who relied on app reminders alone.</p>
+            <p style="font-size: 0.75rem; font-style: italic; color: var(--stone-400); margin-top: 1rem; line-height: 1.5;">Based on research into environmental cues and habit formation — Lally et al. (2010), Gardner (2015), Keller et al. (2021)</p>
           </div>
         </div>
       </div>
@@ -1370,7 +1377,7 @@
   <section class="founders" id="story">
     <div class="founders-inner reveal">
       <div class="founders-photo">
-        👨‍👩‍👧‍👦
+        <img src="founders.jpg" alt="Willem, Christelle, and their two kids — the family behind Ritual" loading="lazy">
       </div>
       <div class="founders-text">
         <span class="section-label">Our story</span>
