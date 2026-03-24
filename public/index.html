@@ -1,59 +1,1470 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ritual</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ritual — Build habits that stick. Beautiful physical tiles meet a smart app to help families and individuals turn daily intentions into automatic routines.">
+  <title>Ritual — Habits that stick</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --stone-50: #fafaf9;
+      --stone-100: #f5f5f4;
+      --stone-200: #e7e5e4;
+      --stone-300: #d6d3d1;
+      --stone-400: #a8a29e;
+      --stone-500: #78716c;
+      --stone-600: #57534e;
+      --stone-700: #44403c;
+      --stone-800: #292524;
+      --stone-900: #1c1917;
+      --warm-cream: #fdf8f3;
+      --warm-peach: #fef0e4;
+      --accent: #e07a3a;
+      --accent-deep: #c4612a;
+      --accent-light: #f5c7a0;
+      --sage: #8a9a7b;
+      --sage-light: #dde5d7;
+      --radius: 12px;
+    }
+
     * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: #0a0a0a;
-      color: #f0f0f0;
+      font-family: 'DM Sans', sans-serif;
+      color: var(--stone-800);
+      background: var(--warm-cream);
+      overflow-x: hidden;
+      line-height: 1.65;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 1.25rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(253, 248, 243, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(0,0,0,0.04);
+      transition: all 0.3s ease;
+    }
+
+    .nav-logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.5rem;
+      color: var(--stone-900);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-cta {
+      background: var(--stone-900);
+      color: var(--stone-50);
+      padding: 0.65rem 1.5rem;
+      border-radius: 100px;
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: all 0.25s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .nav-cta:hover {
+      background: var(--accent-deep);
+      transform: translateY(-1px);
+    }
+
+    /* ── HERO ── */
+    .hero {
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 8rem 2rem 6rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -20%;
+      right: -10%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, var(--warm-peach) 0%, transparent 70%);
+      border-radius: 50%;
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -10%;
+      left: -5%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, var(--sage-light) 0%, transparent 70%);
+      border-radius: 50%;
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1.1rem;
+      background: white;
+      border-radius: 100px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--stone-600);
+      margin-bottom: 2.5rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+      animation: fadeInDown 0.8s ease-out;
+    }
+
+    .hero-badge .dot {
+      width: 7px;
+      height: 7px;
+      background: var(--sage);
+      border-radius: 50%;
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.3); }
+    }
+
+    .hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.8rem, 6.5vw, 5.5rem);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      color: var(--stone-900);
+      max-width: 780px;
+      margin-bottom: 1.75rem;
+      animation: fadeInUp 0.8s ease-out 0.1s both;
+      position: relative;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      color: var(--accent);
+    }
+
+    .hero-sub {
+      font-size: clamp(1.05rem, 2vw, 1.25rem);
+      color: var(--stone-500);
+      max-width: 520px;
+      line-height: 1.7;
+      margin-bottom: 2.75rem;
+      animation: fadeInUp 0.8s ease-out 0.25s both;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
+      animation: fadeInUp 0.8s ease-out 0.4s both;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+      padding: 0.9rem 2.25rem;
+      border-radius: 100px;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: all 0.25s ease;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-deep);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(224, 122, 58, 0.25);
+    }
+
+    .btn-secondary {
+      color: var(--stone-600);
+      padding: 0.9rem 1.5rem;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .btn-secondary:hover { color: var(--stone-900); }
+
+    .hero-scroll-hint {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--stone-400);
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      animation: fadeIn 1s ease-out 1.2s both;
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--stone-300), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 1; height: 40px; }
+      50% { opacity: 0.4; height: 28px; }
+    }
+
+    /* ── SECTION COMMONS ── */
+    section {
+      padding: 7rem 2rem;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: var(--stone-900);
+      margin-bottom: 1.25rem;
+    }
+
+    .section-desc {
+      font-size: 1.05rem;
+      color: var(--stone-500);
+      max-width: 560px;
+      line-height: 1.7;
+    }
+
+    /* ── HOW IT WORKS ── */
+    .how-it-works {
+      background: white;
+      border-top: 1px solid var(--stone-200);
+      border-bottom: 1px solid var(--stone-200);
+    }
+
+    .how-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .how-header {
+      text-align: center;
+      margin-bottom: 4.5rem;
+    }
+
+    .how-header .section-desc {
+      margin: 0 auto;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
+      position: relative;
+    }
+
+    .steps-grid::before {
+      content: '';
+      position: absolute;
+      top: 56px;
+      left: 16.67%;
+      right: 16.67%;
+      height: 2px;
+      background: linear-gradient(to right, var(--stone-200), var(--accent-light), var(--stone-200));
+    }
+
+    .step {
+      text-align: center;
+      position: relative;
+    }
+
+    .step-icon {
+      width: 112px;
+      height: 112px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.75rem;
+      font-size: 2.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .step:nth-child(1) .step-icon { background: var(--warm-peach); }
+    .step:nth-child(2) .step-icon { background: var(--sage-light); }
+    .step:nth-child(3) .step-icon { background: #fef3c7; }
+
+    .step-num {
+      position: absolute;
+      top: -6px;
+      right: -6px;
+      width: 28px;
+      height: 28px;
+      background: var(--stone-900);
+      color: white;
+      border-radius: 50%;
+      font-size: 0.75rem;
+      font-weight: 600;
+      display: flex;
       align-items: center;
       justify-content: center;
     }
-    .hero {
-      text-align: center;
-      padding: 2rem;
-      max-width: 800px;
+
+    .step h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.35rem;
+      margin-bottom: 0.75rem;
+      color: var(--stone-900);
     }
-    h1 {
-      font-size: 4rem;
-      font-weight: 800;
-      letter-spacing: -0.02em;
+
+    .step p {
+      font-size: 0.95rem;
+      color: var(--stone-500);
+      line-height: 1.65;
+      max-width: 300px;
+      margin: 0 auto;
+    }
+
+    /* ── WHY TILES ── */
+    .why-tiles {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .why-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .why-visual {
+      position: relative;
+    }
+
+    .why-card {
+      background: white;
+      border-radius: 20px;
+      padding: 3rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 12px 40px rgba(0,0,0,0.06);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .why-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(to right, var(--accent), var(--sage));
+    }
+
+    .stat-big {
+      font-family: 'DM Serif Display', serif;
+      font-size: 4.5rem;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 0.75rem;
+    }
+
+    .stat-label {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--stone-700);
       margin-bottom: 1rem;
-      background: linear-gradient(135deg, #fff 0%, #888 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
     }
-    p {
-      font-size: 1.25rem;
-      color: #888;
-      line-height: 1.6;
+
+    .stat-desc {
+      font-size: 0.9rem;
+      color: var(--stone-500);
+      line-height: 1.65;
+    }
+
+    .floating-tile {
+      position: absolute;
+      width: 64px;
+      height: 64px;
+      border-radius: 14px;
+      background: var(--warm-peach);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .floating-tile:nth-child(2) {
+      top: -20px;
+      right: -20px;
+      animation-delay: -2s;
+      background: var(--sage-light);
+    }
+
+    .floating-tile:nth-child(3) {
+      bottom: -16px;
+      left: -16px;
+      animation-delay: -4s;
+      background: #fef3c7;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-10px) rotate(3deg); }
+    }
+
+    .why-content .section-title {
+      max-width: 440px;
+    }
+
+    .why-content .section-desc {
       margin-bottom: 2rem;
     }
-    .cta {
-      display: inline-block;
-      padding: 0.875rem 2rem;
-      background: #fff;
-      color: #0a0a0a;
-      border-radius: 8px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: opacity 0.2s;
+
+    .why-points {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
     }
-    .cta:hover { opacity: 0.85; }
+
+    .why-points li {
+      display: flex;
+      gap: 0.85rem;
+      align-items: flex-start;
+      font-size: 0.95rem;
+      color: var(--stone-600);
+      line-height: 1.6;
+    }
+
+    .why-points li .check {
+      width: 22px;
+      height: 22px;
+      min-width: 22px;
+      background: var(--sage-light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      color: var(--sage);
+      margin-top: 2px;
+    }
+
+    /* ── FAMILIES + INDIVIDUALS ── */
+    .use-cases {
+      background: var(--stone-900);
+      color: white;
+    }
+
+    .use-cases-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .use-cases-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .use-cases-header .section-title { color: white; }
+    .use-cases-header .section-desc { color: var(--stone-400); margin: 0 auto; }
+
+    .use-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .use-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 2.75rem;
+      transition: all 0.3s ease;
+    }
+
+    .use-card:hover {
+      background: rgba(255,255,255,0.09);
+      transform: translateY(-2px);
+    }
+
+    .use-card-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .use-card:nth-child(1) .use-card-icon { background: rgba(224, 122, 58, 0.2); }
+    .use-card:nth-child(2) .use-card-icon { background: rgba(138, 154, 123, 0.25); }
+
+    .use-card h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.5rem;
+      margin-bottom: 0.85rem;
+      color: white;
+    }
+
+    .use-card p {
+      font-size: 0.95rem;
+      color: var(--stone-400);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .use-card-examples {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .example-tag {
+      padding: 0.35rem 0.85rem;
+      background: rgba(255,255,255,0.08);
+      border-radius: 100px;
+      font-size: 0.8rem;
+      color: var(--stone-300);
+    }
+
+    /* ── PRICING PREVIEW ── */
+    .pricing {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .pricing .section-desc {
+      margin: 0 auto 3.5rem;
+    }
+
+    .pricing-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      max-width: 700px;
+      margin: 0 auto 2.5rem;
+    }
+
+    .pricing-card {
+      background: white;
+      border-radius: 20px;
+      padding: 2.5rem 2rem;
+      border: 1px solid var(--stone-200);
+      text-align: left;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .pricing-card:hover {
+      border-color: var(--accent-light);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.06);
+    }
+
+    .pricing-card.featured {
+      border-color: var(--accent);
+    }
+
+    .pricing-card.featured::before {
+      content: 'Most popular';
+      position: absolute;
+      top: -10px;
+      right: 1.5rem;
+      background: var(--accent);
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.25rem 0.75rem;
+      border-radius: 100px;
+      letter-spacing: 0.03em;
+    }
+
+    .pricing-tier {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--stone-500);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.75rem;
+    }
+
+    .pricing-amount {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.5rem;
+      color: var(--stone-900);
+      line-height: 1;
+      margin-bottom: 0.35rem;
+    }
+
+    .pricing-amount span {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem;
+      color: var(--stone-500);
+      font-weight: 400;
+    }
+
+    .pricing-note {
+      font-size: 0.85rem;
+      color: var(--stone-400);
+      margin-bottom: 1.75rem;
+    }
+
+    .pricing-or-monthly {
+      font-size: 0.8rem;
+      color: var(--stone-400);
+      margin-bottom: 1.75rem;
+      margin-top: -1.25rem;
+    }
+
+    .pricing-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .pricing-features li {
+      font-size: 0.875rem;
+      color: var(--stone-600);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .pricing-features li::before {
+      content: '✓';
+      color: var(--sage);
+      font-weight: 600;
+      font-size: 0.8rem;
+    }
+
+    .pricing-hardware {
+      font-size: 0.9rem;
+      color: var(--stone-500);
+      max-width: 480px;
+      margin: 0 auto;
+      line-height: 1.65;
+    }
+
+    .pricing-hardware strong {
+      color: var(--stone-700);
+    }
+
+    /* ── WAITLIST ── */
+    .waitlist {
+      background: linear-gradient(135deg, var(--warm-peach) 0%, var(--warm-cream) 50%, var(--sage-light) 100%);
+    }
+
+    .waitlist-inner {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .waitlist .section-title {
+      margin-bottom: 0.75rem;
+    }
+
+    .waitlist .section-desc {
+      margin: 0 auto 2.5rem;
+    }
+
+    .waitlist-form {
+      display: flex;
+      gap: 0.75rem;
+      max-width: 460px;
+      margin: 0 auto 1.25rem;
+    }
+
+    .waitlist-form input {
+      flex: 1;
+      padding: 0.9rem 1.25rem;
+      border: 1px solid var(--stone-300);
+      border-radius: 100px;
+      font-size: 0.95rem;
+      font-family: 'DM Sans', sans-serif;
+      background: white;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+
+    .waitlist-form input:focus {
+      border-color: var(--accent);
+    }
+
+    .waitlist-form input::placeholder {
+      color: var(--stone-400);
+    }
+
+    .waitlist-privacy {
+      font-size: 0.8rem;
+      color: var(--stone-400);
+    }
+
+    .form-success {
+      display: none;
+      padding: 1rem;
+      background: var(--sage-light);
+      border-radius: var(--radius);
+      color: var(--stone-700);
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--stone-900);
+      color: var(--stone-400);
+      padding: 3rem 2rem;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.25rem;
+      color: white;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .footer-links a {
+      color: var(--stone-400);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color 0.2s ease;
+    }
+
+    .footer-links a:hover { color: white; }
+
+    .footer-copy {
+      font-size: 0.8rem;
+    }
+
+    /* ── FOUNDERS ── */
+    .founders {
+      background: white;
+      border-top: 1px solid var(--stone-200);
+      border-bottom: 1px solid var(--stone-200);
+    }
+
+    .founders-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      display: flex;
+      gap: 3.5rem;
+      align-items: center;
+    }
+
+    .founders-photo {
+      min-width: 200px;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--warm-peach) 0%, var(--sage-light) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      flex-shrink: 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .founders-photo::after {
+      content: '';
+      position: absolute;
+      inset: 4px;
+      border-radius: 50%;
+      border: 2px dashed var(--accent-light);
+    }
+
+    .founders-text .section-label {
+      margin-bottom: 0.75rem;
+    }
+
+    .founders-text h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.65rem;
+      color: var(--stone-900);
+      line-height: 1.25;
+      margin-bottom: 1rem;
+      letter-spacing: -0.01em;
+    }
+
+    .founders-text p {
+      font-size: 0.95rem;
+      color: var(--stone-500);
+      line-height: 1.75;
+      margin-bottom: 0.75rem;
+    }
+
+    .founders-location {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.8rem;
+      color: var(--stone-400);
+      margin-top: 0.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .founders-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .founders-photo {
+        min-width: 160px;
+        width: 160px;
+        height: 160px;
+        font-size: 3rem;
+      }
+    }
+
+    /* ── FAQ ── */
+    .faq {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .faq-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .faq-header .section-desc {
+      margin: 0 auto;
+    }
+
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--stone-200);
+    }
+
+    .faq-item:first-child {
+      border-top: 1px solid var(--stone-200);
+    }
+
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 1.35rem 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      text-align: left;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--stone-800);
+      gap: 1.5rem;
+      transition: color 0.2s ease;
+    }
+
+    .faq-question:hover {
+      color: var(--accent);
+    }
+
+    .faq-icon {
+      width: 28px;
+      height: 28px;
+      min-width: 28px;
+      border-radius: 50%;
+      background: var(--stone-100);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      color: var(--stone-500);
+      transition: all 0.3s ease;
+    }
+
+    .faq-item.open .faq-icon {
+      background: var(--accent);
+      color: white;
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.35s ease;
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 400px;
+    }
+
+    .faq-answer-inner {
+      padding: 0 0 1.5rem;
+      font-size: 0.95rem;
+      color: var(--stone-500);
+      line-height: 1.75;
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.25rem; }
+      .nav-logo { font-size: 1.25rem; }
+
+      .hero { padding: 7rem 1.5rem 5rem; min-height: 90vh; }
+
+      .steps-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      .steps-grid::before { display: none; }
+
+      .why-layout {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .why-visual { order: 2; }
+
+      .use-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .pricing-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .waitlist-form {
+        flex-direction: column;
+      }
+
+      .waitlist-form .btn-primary {
+        justify-content: center;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+      }
+
+      .hero-scroll-hint { display: none; }
+
+      section { padding: 5rem 1.5rem; }
+    }
   </style>
 </head>
 <body>
-  <div class="hero">
-    <h1>Ritual</h1>
-    <p>Build habits that stick. Track your daily rituals and watch consistency compound over time.</p>
-    <a href="#" class="cta">Get Started</a>
-  </div>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">Ritual</a>
+    <a href="#waitlist" class="nav-cta">Join the waitlist</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-badge">
+      <span class="dot"></span>
+      Coming soon — Australia
+    </div>
+    <h1>Habits that <em>stick</em></h1>
+    <p class="hero-sub">
+      A physical tile where the habit happens. A tap to say it's done. 
+      Ritual makes building routines as simple as touching a dot on your wall.
+    </p>
+    <div class="hero-actions">
+      <a href="#waitlist" class="btn-primary">Join the waitlist →</a>
+      <a href="#how" class="btn-secondary">See how it works</a>
+    </div>
+    <div class="hero-scroll-hint">
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how-it-works" id="how">
+    <div class="how-inner">
+      <div class="how-header reveal">
+        <span class="section-label">How it works</span>
+        <h2 class="section-title">Three steps. No friction.</h2>
+        <p class="section-desc">
+          Ritual pairs beautiful physical tiles with a mobile app. 
+          Place a tile, tap it daily, and let consistency do the rest.
+        </p>
+      </div>
+      <div class="steps-grid reveal">
+        <div class="step">
+          <div class="step-icon">
+            <span class="step-num">1</span>
+            📍
+          </div>
+          <h3>Stick a tile</h3>
+          <p>Place a small tile wherever the habit happens — the bathroom mirror, the fridge, the front door. Beautiful for adults, fun 3D icons for kids.</p>
+        </div>
+        <div class="step">
+          <div class="step-icon">
+            <span class="step-num">2</span>
+            📱
+          </div>
+          <h3>Tap your phone</h3>
+          <p>Walk up, tap, done. Your phone recognises the tile instantly. One second and the habit is logged.</p>
+        </div>
+        <div class="step">
+          <div class="step-icon">
+            <span class="step-num">3</span>
+            🔥
+          </div>
+          <h3>Watch streaks grow</h3>
+          <p>Streaks build momentum. Points stack up. The whole family sees progress in real time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY TILES -->
+  <section class="why-tiles-section" id="why">
+    <div class="why-tiles">
+      <div class="why-layout">
+        <div class="why-content reveal">
+          <span class="section-label">The science</span>
+          <h2 class="section-title">Notifications are easy to swipe away. Tiles aren't.</h2>
+          <p class="section-desc">
+            Habit research shows that physical cues in specific locations are among the strongest drivers of automatic behaviour. Your brain connects "I'm here" with "I do this."
+          </p>
+          <ul class="why-points">
+            <li>
+              <span class="check">✓</span>
+              The tile lives where the habit happens — no phone hunting, no app searching
+            </li>
+            <li>
+              <span class="check">✓</span>
+              Location-based triggers build automatic routines faster than reminders
+            </li>
+            <li>
+              <span class="check">✓</span>
+              The physical tap creates a micro-moment of commitment — you chose to do it
+            </li>
+            <li>
+              <span class="check">✓</span>
+              After a few weeks, the spot itself becomes the reminder
+            </li>
+          </ul>
+        </div>
+        <div class="why-visual reveal">
+          <div class="why-card">
+            <div class="floating-tile" style="top:-20px;right:-20px;">🪥</div>
+            <div class="floating-tile" style="bottom:-16px;left:-16px;">💊</div>
+            <div class="stat-big">58%</div>
+            <div class="stat-label">higher success rate</div>
+            <p class="stat-desc">People who linked habits to physical cues and locations had significantly higher success rates than those who relied on app reminders alone.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- USE CASES -->
+  <section class="use-cases" id="for">
+    <div class="use-cases-inner">
+      <div class="use-cases-header reveal">
+        <span class="section-label">Who it's for</span>
+        <h2 class="section-title">Built for families. Works for anyone.</h2>
+        <p class="section-desc">Whether you're building routines with kids or just trying to floss more consistently, Ritual adapts to how you live.</p>
+      </div>
+      <div class="use-cards reveal">
+        <div class="use-card">
+          <div class="use-card-icon">👨‍👩‍👧‍👦</div>
+          <h3>Families</h3>
+          <p>
+            Everyone taps in. Kids earn points and redeem rewards (with parent approval). 
+            Shared habits like feeding the pet or packing lunches only need one tap.
+            Family nudges keep everyone accountable without nagging.
+          </p>
+          <div class="use-card-examples">
+            <span class="example-tag">Morning routines</span>
+            <span class="example-tag">Homework</span>
+            <span class="example-tag">Chores</span>
+            <span class="example-tag">Screen-free time</span>
+            <span class="example-tag">Pet care</span>
+          </div>
+        </div>
+        <div class="use-card">
+          <div class="use-card-icon">🧘</div>
+          <h3>Individuals</h3>
+          <p>
+            No complexity, no family features in the way. 
+            Just your habits, your tiles, your streaks. 
+            A system that works because the trigger is already waiting for you where you need it.
+          </p>
+          <div class="use-card-examples">
+            <span class="example-tag">Meditation</span>
+            <span class="example-tag">Exercise</span>
+            <span class="example-tag">Vitamins</span>
+            <span class="example-tag">Journaling</span>
+            <span class="example-tag">Reading</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing" id="pricing">
+    <div class="reveal">
+      <span class="section-label">Simple pricing</span>
+      <h2 class="section-title">Start with tiles. Subscribe when you're ready.</h2>
+      <p class="section-desc">
+        Grab a starter pack of tiles to get going. The app subscription unlocks streaks, insights, family features, and more. Your first month is free with any starter pack.
+      </p>
+    </div>
+    <div class="pricing-cards reveal">
+      <div class="pricing-card">
+        <div class="pricing-tier">Individual</div>
+        <div class="pricing-amount">$5.50 <span>/ month</span></div>
+        <p class="pricing-note">Billed annually at $66 AUD</p>
+        <p class="pricing-or-monthly">or $8/month billed monthly</p>
+        <ul class="pricing-features">
+          <li>Unlimited habits & tiles</li>
+          <li>Streaks & insights</li>
+          <li>Points & rewards</li>
+          <li>First month free with starter pack</li>
+        </ul>
+      </div>
+      <div class="pricing-card featured">
+        <div class="pricing-tier">Family</div>
+        <div class="pricing-amount">$6.99 <span>/ month</span></div>
+        <p class="pricing-note">Billed annually at $83.88 AUD · Up to 6 members</p>
+        <p class="pricing-or-monthly">or $9.99/month billed monthly</p>
+        <ul class="pricing-features">
+          <li>Everything in Individual</li>
+          <li>Family dashboard & nudges</li>
+          <li>Kids mode with parent controls</li>
+          <li>Shared & individual habits</li>
+          <li>First month free with starter pack</li>
+        </ul>
+        <div style="margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid var(--stone-200); font-size: 0.8rem; color: var(--stone-400);">
+          That's just <strong style="color: var(--accent);">$1.75/month</strong> per person for a family of 4
+        </div>
+      </div>
+    </div>
+    <div class="reveal" style="text-align: center; max-width: 560px; margin: 0 auto;">
+      <p class="pricing-hardware" style="margin-bottom: 0.75rem;">
+        <strong>Tile Starter Pack — from $35 AUD.</strong> 
+        Includes 10 tiles with adhesive backing. First month of any subscription included free.
+      </p>
+      <p style="font-size: 0.85rem; color: var(--stone-400); line-height: 1.6;">
+        <strong style="color: var(--stone-600);">Premium packs also available</strong> — beautifully crafted tile sets for the design-conscious. Additional tiles available separately.
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section" id="faq">
+    <div class="faq">
+      <div class="faq-header reveal">
+        <span class="section-label">Questions</span>
+        <h2 class="section-title">Everything you need to know</h2>
+        <p class="section-desc">New to Ritual? Here's what people usually ask.</p>
+      </div>
+      <div class="faq-list reveal">
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            What are Ritual tiles?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Ritual tiles are small, beautifully designed physical markers that you place wherever a habit happens — your bathroom mirror, the fridge, a bedside table. For adults, they're premium and minimal. For kids, they're fun 3D icons. Each tile connects to a habit in the app. When you're done with the habit, you tap your phone to the tile and it logs instantly. No batteries, no charging, no Wi‑Fi needed — they work permanently and are completely reusable.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Why tiles instead of just tapping a button in the app?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Most habit apps don't work long-term because a button on a screen is easy to ignore. Physical objects are different. Habit research shows that cues placed in specific locations are among the strongest drivers of automatic behaviour — your brain connects "I'm here" with "I do this." Ritual puts the trigger exactly where the habit happens, so after a few weeks the spot itself becomes the reminder. Studies show people who link habits to physical environmental cues have significantly higher success rates than those who rely on app reminders alone.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            How do I tap a tile?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Unlock your phone, hold the back of it near the tile (close to where your camera is), and hold still for 1–2 seconds. On iPhone a small banner appears at the top — tap it. On Android a notification pops up — tap it. If it doesn't work first time, try shifting your phone slightly up or down — the reader position varies by model.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            How do families use Ritual?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Everyone in the family gets their own profile. Habits can be individual (each person tracks their own — like homework or taking medication) or shared (one tap counts for everyone — like feeding the pet). Kids earn points and can redeem rewards, but a parent needs to approve and fulfil each reward. Family nudges keep everyone gently accountable without the nagging.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            How do points and rewards work?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Every habit completion earns points — different habits can be worth different amounts. Adults can redeem rewards instantly. Kids create a request that a parent reviews and fulfils, so rewards stay connected to real life. Points never expire.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            What if I tap by accident or miss a day?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Tapped by accident? Just hold your finger on the completed habit card and it undoes the tap. Not near your tile and need to log a habit? You can complete it manually in the app — we make this slightly less convenient on purpose, because the physical tap is the whole point, but life happens.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Can I move a tile to a different habit?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Yes — tiles are completely reusable. Each tile connects to one habit at a time, but you can reassign it whenever you want. If a habit changes, the tile changes with it.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Are the tiles safe for kids?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              The tiles are completely passive — no batteries, no power source, no emissions of any kind. They only activate for the moment your phone is held next to them. They're safe to place anywhere in your home. We do recommend securing them to a surface and keeping them out of reach of very young children, as with any small object.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOUNDERS -->
+  <section class="founders" id="story">
+    <div class="founders-inner reveal">
+      <div class="founders-photo">
+        👨‍👩‍👧‍👦
+      </div>
+      <div class="founders-text">
+        <span class="section-label">Our story</span>
+        <h2>Built by a real family, for real families</h2>
+        <p>
+          Ritual started at our kitchen table. We're Willem and Christelle — a Melbourne couple with two kids, two full-time jobs, and a household that runs on good intentions but not always great follow-through.
+        </p>
+        <p>
+          We wanted a way to build better habits as a family — something the kids would actually enjoy, that didn't rely on nagging, and that made the chaos of daily life feel a little more manageable. We couldn't find it, so we built it.
+        </p>
+        <p>
+          Ritual is our attempt to keep track of the things that matter without taking the fun out of family life. We use it every day. We hope you will too.
+        </p>
+        <span class="founders-location">📍 Melbourne, Australia</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- WAITLIST -->
+  <section class="waitlist" id="waitlist">
+    <div class="waitlist-inner reveal">
+      <span class="section-label">Early access</span>
+      <h2 class="section-title">Be first in line</h2>
+      <p class="section-desc">
+        We're launching soon in Australia. Join the waitlist and we'll let you know when Ritual is ready for you.
+      </p>
+      <form class="waitlist-form" id="waitlist-form">
+        <input type="email" placeholder="Your email address" required>
+        <button type="submit" class="btn-primary">Join →</button>
+      </form>
+      <p class="waitlist-privacy">No spam. Just one email when we launch.</p>
+      <div class="form-success" id="form-success">
+        You're on the list! We'll be in touch soon.
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">Ritual</div>
+      <ul class="footer-links">
+        <li><a href="#how">How it works</a></li>
+        <li><a href="#why">Why tiles</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#waitlist">Waitlist</a></li>
+      </ul>
+      <p class="footer-copy">&copy; 2026 Ritual. Melbourne, Australia.</p>
+    </div>
+  </footer>
+
+  <script>
+    // FAQ toggle
+    function toggleFaq(btn) {
+      const item = btn.parentElement;
+      const wasOpen = item.classList.contains('open');
+      // Close all
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      // Open clicked if it wasn't already open
+      if (!wasOpen) item.classList.add('open');
+    }
+
+    // Reveal on scroll
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(el => observer.observe(el));
+
+    // Waitlist form
+    const form = document.getElementById('waitlist-form');
+    const success = document.getElementById('form-success');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      // In production, this would POST to Supabase or Formspree
+      form.style.display = 'none';
+      success.style.display = 'block';
+    });
+
+    // Nav background on scroll
+    const nav = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 60) {
+        nav.style.boxShadow = '0 1px 8px rgba(0,0,0,0.06)';
+      } else {
+        nav.style.boxShadow = 'none';
+      }
+    });
+  </script>
+
 </body>
 </html>
