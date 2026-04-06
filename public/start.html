@@ -102,20 +102,6 @@
       display: block;
     }
 
-    .hero-tagline-sm {
-      font-size: 0.7rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--stone-400);
-      margin-bottom: 1.25rem;
-    }
-
-    .hero-tagline-sm em {
-      font-style: normal;
-      color: var(--accent);
-    }
-
     .hero-sub {
       font-size: 0.95rem;
       color: var(--stone-500);
@@ -343,8 +329,14 @@
     }
 
     .feedback-method-title .method-icon {
-      font-size: 1.25rem;
       flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+    }
+
+    .feedback-method-title .method-icon svg {
+      width: 20px;
+      height: 20px;
     }
 
     .feedback-method p {
@@ -518,7 +510,6 @@
   <!-- HERO -->
   <section class="hero">
     <img src="/images/ritual-logo-terracotta.svg" alt="Ritual" class="hero-wordmark">
-    <p class="hero-tagline-sm">Habits that <em>stick</em></p>
     <p class="hero-sub">Welcome &mdash; you've been selected for the free beta trial of Ritual. Your access is completely free and you won't be charged during the trial. When Ritual officially launches, beta testers will receive 3 months free as a thank you for helping us build something great.</p>
   </section>
 
@@ -565,7 +556,7 @@
         <div class="step">
           <div class="step-icon">
             <span class="step-num">3</span>
-            <svg viewBox="0 0 36 36" fill="none" stroke="#b8860b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="33" x2="18" y2="18"/><path d="M18 22 C14 20 11 16 12 12"/><path d="M18 18 C22 16 24 12 22 8"/><path d="M18 26 C13 25 9 22 9 18" opacity="0.6"/><path d="M18 14 C15 12 14 8 16 5" opacity="0.6"/><circle cx="12" cy="11" r="1.5" fill="#b8860b" stroke="none" opacity="0.4"/><circle cx="22" cy="7" r="1.5" fill="#b8860b" stroke="none" opacity="0.4"/><circle cx="16" cy="4.5" r="1" fill="#b8860b" stroke="none" opacity="0.3"/></svg>
+            <svg viewBox="0 0 36 36" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="33" x2="18" y2="18" stroke="#8B7355"/><path d="M18 22 C14 20 11 16 12 12" stroke="#6B8E5A"/><path d="M18 18 C22 16 24 12 22 8" stroke="#6B8E5A"/><path d="M18 26 C13 25 9 22 9 18" stroke="#6B8E5A" opacity="0.7"/><path d="M18 14 C15 12 14 8 16 5" stroke="#6B8E5A" opacity="0.7"/><circle cx="12" cy="11" r="2" fill="#6B8E5A" stroke="none" opacity="0.5"/><circle cx="22" cy="7" r="2" fill="#6B8E5A" stroke="none" opacity="0.5"/><circle cx="16" cy="4.5" r="1.5" fill="#6B8E5A" stroke="none" opacity="0.4"/><circle cx="9" cy="17" r="1.5" fill="#6B8E5A" stroke="none" opacity="0.35"/></svg>
           </div>
           <h3>Watch your habits grow</h3>
           <p>Streaks build momentum. Kids watch their own little tree grow with every habit completed. The whole family tracks progress together.</p>
@@ -581,14 +572,14 @@
     <div class="feedback-methods">
       <div class="feedback-method">
         <div class="feedback-method-title">
-          <span class="method-icon">📱</span>
+          <span class="method-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#C17B4E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><line x1="9" y1="9" x2="15" y2="9"/><line x1="9" y1="13" x2="13" y2="13"/></svg></span>
           Send feedback from the app
         </div>
         <p>While using Ritual, take a screenshot. Then open TestFlight, find Ritual, and tap &ldquo;Send Beta Feedback&rdquo;. You can attach your screenshot and write your thoughts &mdash; it comes straight to us.</p>
       </div>
       <div class="feedback-method">
         <div class="feedback-method-title">
-          <span class="method-icon">✉️</span>
+          <span class="method-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#C17B4E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,4 12,13 2,4"/></svg></span>
           Email us directly
         </div>
         <p>Prefer to send screenshots or longer messages? Email us anytime at <a href="mailto:hello@ritualhabits.com.au">hello@ritualhabits.com.au</a>. We read everything.</p>
