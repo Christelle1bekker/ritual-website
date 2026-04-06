@@ -98,19 +98,21 @@
     .hero-wordmark {
       width: 160px;
       height: auto;
-      margin: 0 auto 1rem;
+      margin: 0 auto 0.5rem;
       display: block;
     }
 
-    .hero-tagline {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(1.75rem, 4.5vw, 2.25rem);
-      line-height: 1.2;
+    .hero-tagline-sm {
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--stone-400);
       margin-bottom: 1.25rem;
     }
 
-    .hero-tagline em {
-      font-style: italic;
+    .hero-tagline-sm em {
+      font-style: normal;
       color: var(--accent);
     }
 
@@ -185,6 +187,31 @@
       line-height: 1.6;
     }
 
+    .testflight-explainer {
+      margin-top: 1.25rem;
+      padding: 1rem 1.25rem;
+      background: var(--warm-peach);
+      border-radius: var(--radius);
+      text-align: left;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .testflight-explainer strong {
+      font-size: 0.85rem;
+      color: var(--stone-800);
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    .testflight-explainer p {
+      font-size: 0.82rem;
+      color: var(--stone-600);
+      line-height: 1.65;
+      margin-bottom: 0;
+    }
+
     /* ── HOW IT WORKS ── */
     .how-section {
       padding: 2.5rem 2rem;
@@ -226,9 +253,13 @@
       align-items: center;
       justify-content: center;
       margin: 0 auto 1.25rem;
-      font-size: 2rem;
       position: relative;
       z-index: 1;
+    }
+
+    .step-icon svg {
+      width: 36px;
+      height: 36px;
     }
 
     .step:nth-child(1) .step-icon { background: var(--warm-peach); }
@@ -450,8 +481,12 @@
       .step-icon {
         width: 72px;
         height: 72px;
-        font-size: 1.75rem;
         margin-bottom: 1rem;
+      }
+
+      .step-icon svg {
+        width: 30px;
+        height: 30px;
       }
 
       .step-num {
@@ -483,7 +518,7 @@
   <!-- HERO -->
   <section class="hero">
     <img src="/images/ritual-logo-terracotta.svg" alt="Ritual" class="hero-wordmark">
-    <h1 class="hero-tagline">Habits that <em>stick</em></h1>
+    <p class="hero-tagline-sm">Habits that <em>stick</em></p>
     <p class="hero-sub">Welcome &mdash; you've been selected for the free beta trial of Ritual. Your access is completely free and you won't be charged during the trial. When Ritual officially launches, beta testers will receive 3 months free as a thank you for helping us build something great.</p>
   </section>
 
@@ -497,6 +532,10 @@
       Join the Beta on TestFlight
     </a>
     <p class="download-note">Free to install. Requires an iPhone running iOS 16 or later.</p>
+    <div class="testflight-explainer">
+      <strong>What is TestFlight?</strong>
+      <p>TestFlight is Apple's free app for testing new apps before they launch. After installing TestFlight, you'll be invited to install Ritual &mdash; it then appears on your home screen just like any other app. You only need TestFlight once to get started.</p>
+    </div>
   </section>
 
   <!-- HOW IT WORKS -->
@@ -510,7 +549,7 @@
         <div class="step">
           <div class="step-icon">
             <span class="step-num">1</span>
-            📍
+            <svg viewBox="0 0 36 36" fill="none" stroke="#C17B4E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="18,3 31.5,10.5 31.5,25.5 18,33 4.5,25.5 4.5,10.5"/></svg>
           </div>
           <h3>Stick a tile</h3>
           <p>Place a tile wherever the habit happens &mdash; the bathroom mirror, the fridge, the front door.</p>
@@ -518,7 +557,7 @@
         <div class="step">
           <div class="step-icon">
             <span class="step-num">2</span>
-            📱
+            <svg viewBox="0 0 36 36" fill="none" stroke="#6b7f5e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="10" y="4" width="16" height="28" rx="3"/><line x1="16" y1="28" x2="20" y2="28"/><path d="M6 18 C3 16 3 12 6 10" opacity="0.5"/><path d="M30 18 C33 16 33 12 30 10" opacity="0.5"/><path d="M3.5 20 C-0.5 17 -0.5 11 3.5 8" opacity="0.3"/><path d="M32.5 20 C36.5 17 36.5 11 32.5 8" opacity="0.3"/></svg>
           </div>
           <h3>Tap your phone</h3>
           <p>Hold the back of your phone against the tile &mdash; just like tap-and-pay. One tap and the habit is instantly logged.</p>
@@ -526,9 +565,9 @@
         <div class="step">
           <div class="step-icon">
             <span class="step-num">3</span>
-            🌳
+            <svg viewBox="0 0 36 36" fill="none" stroke="#b8860b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="33" x2="18" y2="18"/><path d="M18 22 C14 20 11 16 12 12"/><path d="M18 18 C22 16 24 12 22 8"/><path d="M18 26 C13 25 9 22 9 18" opacity="0.6"/><path d="M18 14 C15 12 14 8 16 5" opacity="0.6"/><circle cx="12" cy="11" r="1.5" fill="#b8860b" stroke="none" opacity="0.4"/><circle cx="22" cy="7" r="1.5" fill="#b8860b" stroke="none" opacity="0.4"/><circle cx="16" cy="4.5" r="1" fill="#b8860b" stroke="none" opacity="0.3"/></svg>
           </div>
-          <h3>Watch your family grow</h3>
+          <h3>Watch your habits grow</h3>
           <p>Streaks build momentum. Kids watch their own little tree grow with every habit completed. The whole family tracks progress together.</p>
         </div>
       </div>
@@ -542,10 +581,10 @@
     <div class="feedback-methods">
       <div class="feedback-method">
         <div class="feedback-method-title">
-          <span class="method-icon">📳</span>
-          Shake to send feedback
+          <span class="method-icon">📱</span>
+          Send feedback from the app
         </div>
-        <p>While using the app, simply shake your phone. TestFlight will capture a screenshot and let you write feedback that comes straight to us. This is the quickest way to flag anything &mdash; a bug, a suggestion, or something you love.</p>
+        <p>While using Ritual, take a screenshot. Then open TestFlight, find Ritual, and tap &ldquo;Send Beta Feedback&rdquo;. You can attach your screenshot and write your thoughts &mdash; it comes straight to us.</p>
       </div>
       <div class="feedback-method">
         <div class="feedback-method-title">
