@@ -53,7 +53,7 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      padding: 1.25rem 2rem;
+      padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -89,37 +89,42 @@
 
     /* ── HERO ── */
     .hero {
-      padding: 5rem 2rem 4rem;
+      padding: 3rem 2rem 1.5rem;
       text-align: center;
       max-width: 640px;
       margin: 0 auto;
     }
 
-    .hero-hex {
-      width: 72px;
-      height: 72px;
-      margin: 0 auto 2rem;
+    .hero-wordmark {
+      width: 160px;
+      height: auto;
+      margin: 0 auto 1rem;
+      display: block;
     }
 
-    .hero h1 {
+    .hero-tagline {
       font-family: 'DM Serif Display', serif;
-      font-size: clamp(2rem, 5vw, 2.75rem);
-      color: var(--stone-900);
+      font-size: clamp(1.75rem, 4.5vw, 2.25rem);
       line-height: 1.2;
-      margin-bottom: 1rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-tagline em {
+      font-style: italic;
+      color: var(--accent);
     }
 
     .hero-sub {
-      font-size: 1.1rem;
+      font-size: 0.95rem;
       color: var(--stone-500);
-      line-height: 1.7;
-      max-width: 480px;
+      line-height: 1.75;
+      max-width: 520px;
       margin: 0 auto;
     }
 
     /* ── DOWNLOAD SECTION ── */
     .download-section {
-      padding: 0 2rem 4rem;
+      padding: 1.5rem 2rem 2.5rem;
       text-align: center;
       max-width: 640px;
       margin: 0 auto;
@@ -132,21 +137,21 @@
       text-transform: uppercase;
       letter-spacing: 0.1em;
       color: var(--accent);
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.5rem;
     }
 
     .download-section h2 {
       font-family: 'DM Serif Display', serif;
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       color: var(--stone-900);
-      margin-bottom: 1rem;
+      margin-bottom: 0.75rem;
     }
 
     .download-section p {
       color: var(--stone-500);
-      font-size: 0.95rem;
+      font-size: 0.92rem;
       line-height: 1.7;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.25rem;
     }
 
     .download-btn {
@@ -174,7 +179,7 @@
     }
 
     .download-note {
-      margin-top: 1rem;
+      margin-top: 0.75rem;
       font-size: 0.82rem;
       color: var(--stone-400);
       line-height: 1.6;
@@ -182,7 +187,7 @@
 
     /* ── HOW IT WORKS ── */
     .how-section {
-      padding: 4rem 2rem;
+      padding: 2.5rem 2rem;
       background: white;
     }
 
@@ -193,98 +198,185 @@
 
     .how-header {
       text-align: center;
-      margin-bottom: 3rem;
+      margin-bottom: 2rem;
     }
 
     .how-header h2 {
       font-family: 'DM Serif Display', serif;
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       color: var(--stone-900);
     }
 
     .steps {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
+      gap: 1.5rem;
     }
 
     .step {
       text-align: center;
-      padding: 1.5rem 1rem;
+      padding: 1rem 0.75rem;
     }
 
     .step-icon {
-      width: 56px;
-      height: 56px;
+      width: 88px;
+      height: 88px;
       border-radius: 50%;
-      background: var(--warm-peach);
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 0 auto 1rem;
-      font-size: 1.5rem;
+      margin: 0 auto 1.25rem;
+      font-size: 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .step:nth-child(1) .step-icon { background: var(--warm-peach); }
+    .step:nth-child(2) .step-icon { background: var(--sage-light); }
+    .step:nth-child(3) .step-icon { background: #fef3c7; }
+
+    .step-num {
+      position: absolute;
+      top: -4px;
+      right: -4px;
+      width: 26px;
+      height: 26px;
+      background: var(--stone-900);
+      color: white;
+      border-radius: 50%;
+      font-size: 0.7rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .step h3 {
       font-family: 'DM Serif Display', serif;
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       color: var(--stone-900);
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.4rem;
     }
 
     .step p {
-      font-size: 0.88rem;
+      font-size: 0.85rem;
       color: var(--stone-500);
       line-height: 1.6;
     }
 
-    /* ── VIDEO PLACEHOLDER ── */
-    .video-section {
-      padding: 4rem 2rem;
-      max-width: 720px;
+    /* ── FEEDBACK SECTION ── */
+    .feedback-section {
+      padding: 2.5rem 2rem;
+      max-width: 640px;
       margin: 0 auto;
     }
 
-    .video-container {
-      position: relative;
-      width: 100%;
-      padding-top: 56.25%; /* 16:9 */
+    .feedback-section h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.4rem;
+      color: var(--stone-900);
+      text-align: center;
+      margin-bottom: 0.75rem;
+    }
+
+    .feedback-intro {
+      color: var(--stone-500);
+      font-size: 0.92rem;
+      line-height: 1.7;
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .feedback-methods {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .feedback-method {
+      background: white;
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+      border: 1px solid var(--stone-200);
+    }
+
+    .feedback-method-title {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--stone-900);
+      margin-bottom: 0.4rem;
+    }
+
+    .feedback-method-title .method-icon {
+      font-size: 1.25rem;
+      flex-shrink: 0;
+    }
+
+    .feedback-method p {
+      font-size: 0.88rem;
+      color: var(--stone-500);
+      line-height: 1.65;
+    }
+
+    .feedback-method a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .feedback-method a:hover {
+      text-decoration: underline;
+    }
+
+    .feedback-closing {
+      text-align: center;
+      font-size: 0.92rem;
+      color: var(--stone-600);
+      line-height: 1.7;
+      font-style: italic;
+    }
+
+    /* ── VIDEO BANNER ── */
+    .video-banner {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 0 2rem 2.5rem;
+    }
+
+    .video-banner-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      padding: 1rem 1.5rem;
       background: var(--stone-100);
       border-radius: var(--radius);
       border: 1px solid var(--stone-200);
-      overflow: hidden;
     }
 
-    .video-inner {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
-    }
-
-    .play-icon {
-      width: 64px;
-      height: 64px;
+    .video-play-sm {
+      width: 32px;
+      height: 32px;
       border-radius: 50%;
       background: var(--accent);
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 4px 16px rgba(193, 123, 78, 0.3);
+      flex-shrink: 0;
     }
 
-    .play-icon svg {
-      width: 24px;
-      height: 24px;
+    .video-play-sm svg {
+      width: 12px;
+      height: 12px;
       fill: white;
-      margin-left: 3px;
+      margin-left: 2px;
     }
 
-    .video-label {
-      font-size: 0.9rem;
+    .video-banner-text {
+      font-size: 0.85rem;
       color: var(--stone-400);
       font-weight: 500;
     }
@@ -293,7 +385,7 @@
     footer {
       background: var(--stone-900);
       color: var(--stone-400);
-      padding: 2.5rem 2rem;
+      padding: 2rem;
       text-align: center;
     }
 
@@ -303,7 +395,7 @@
     }
 
     .footer-logo {
-      margin-bottom: 1rem;
+      margin-bottom: 0.75rem;
       line-height: 1;
     }
 
@@ -319,7 +411,7 @@
       justify-content: center;
       gap: 1.5rem;
       list-style: none;
-      margin-bottom: 1rem;
+      margin-bottom: 0.75rem;
     }
 
     .footer-links a {
@@ -340,24 +432,43 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
-      nav { padding: 1rem 1.25rem; }
+      nav { padding: 0.75rem 1.25rem; }
       .nav-logo img { height: 24px; }
 
-      .hero { padding: 3.5rem 1.5rem 3rem; }
-      .hero-hex { width: 60px; height: 60px; }
+      .hero { padding: 2.5rem 1.5rem 1.25rem; }
+      .hero-wordmark { width: 140px; }
 
-      .download-section { padding: 0 1.5rem 3rem; }
+      .download-section { padding: 1rem 1.5rem 2rem; }
 
       .steps {
         grid-template-columns: 1fr;
-        gap: 0.5rem;
+        gap: 0.25rem;
       }
 
-      .how-section { padding: 3rem 1.5rem; }
+      .step { padding: 0.75rem; }
 
-      .video-section { padding: 3rem 1.5rem; }
+      .step-icon {
+        width: 72px;
+        height: 72px;
+        font-size: 1.75rem;
+        margin-bottom: 1rem;
+      }
 
-      footer { padding: 2rem 1.5rem; }
+      .step-num {
+        width: 22px;
+        height: 22px;
+        font-size: 0.65rem;
+      }
+
+      .how-section { padding: 2rem 1.5rem; }
+      .how-header { margin-bottom: 1.25rem; }
+
+      .feedback-section { padding: 2rem 1.5rem; }
+      .feedback-method { padding: 1rem 1.25rem; }
+
+      .video-banner { padding: 0 1.5rem 2rem; }
+
+      footer { padding: 1.5rem; }
     }
   </style>
 </head>
@@ -371,14 +482,14 @@
 
   <!-- HERO -->
   <section class="hero">
-    <img src="/images/ritual-hex-icon-with-r.svg" alt="Ritual hex tile" class="hero-hex">
-    <h1>Welcome to Ritual</h1>
-    <p class="hero-sub">You've just scanned your first tile. Here's how to get started.</p>
+    <img src="/images/ritual-logo-terracotta.svg" alt="Ritual" class="hero-wordmark">
+    <h1 class="hero-tagline">Habits that <em>stick</em></h1>
+    <p class="hero-sub">Welcome &mdash; you've been selected for the free beta trial of Ritual. Your access is completely free and you won't be charged during the trial. When Ritual officially launches, beta testers will receive 3 months free as a thank you for helping us build something great.</p>
   </section>
 
-  <!-- STEP 1: DOWNLOAD -->
+  <!-- DOWNLOAD -->
   <section class="download-section">
-    <span class="step-label">Step 1</span>
+    <span class="step-label">Get started</span>
     <h2>Download the app</h2>
     <p>Ritual is currently in beta on iOS. Tap the button below to join via TestFlight, Apple's free testing app. If you don't have TestFlight installed, you'll be prompted to download it automatically.</p>
     <a href="https://testflight.apple.com/join/9PUW7ADZ" class="download-btn">
@@ -388,44 +499,74 @@
     <p class="download-note">Free to install. Requires an iPhone running iOS 16 or later.</p>
   </section>
 
-  <!-- STEP 2: HOW IT WORKS -->
+  <!-- HOW IT WORKS -->
   <section class="how-section">
     <div class="how-inner">
       <div class="how-header">
-        <span class="step-label">Step 2</span>
-        <h2>How it works</h2>
+        <span class="step-label">How it works</span>
+        <h2>Three steps. No friction.</h2>
       </div>
       <div class="steps">
         <div class="step">
-          <div class="step-icon">📍</div>
-          <h3>Place your tiles</h3>
-          <p>Stick a tile wherever the habit happens — the bathroom mirror, the fridge, the front door.</p>
+          <div class="step-icon">
+            <span class="step-num">1</span>
+            📍
+          </div>
+          <h3>Stick a tile</h3>
+          <p>Place a tile wherever the habit happens &mdash; the bathroom mirror, the fridge, the front door.</p>
         </div>
         <div class="step">
-          <div class="step-icon">📱</div>
-          <h3>Tap to log</h3>
-          <p>Walk up, tap your phone on the tile, done. One second and the habit is logged.</p>
+          <div class="step-icon">
+            <span class="step-num">2</span>
+            📱
+          </div>
+          <h3>Tap your phone</h3>
+          <p>Hold the back of your phone against the tile &mdash; just like tap-and-pay. One tap and the habit is instantly logged.</p>
         </div>
         <div class="step">
-          <div class="step-icon">👨‍👩‍👧‍👦</div>
-          <h3>Track together</h3>
-          <p>The whole family sees progress in real time. Streaks build momentum, points keep everyone motivated.</p>
+          <div class="step-icon">
+            <span class="step-num">3</span>
+            🌳
+          </div>
+          <h3>Watch your family grow</h3>
+          <p>Streaks build momentum. Kids watch their own little tree grow with every habit completed. The whole family tracks progress together.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- VIDEO PLACEHOLDER -->
-  <section class="video-section">
-    <div class="video-container">
-      <div class="video-inner">
-        <div class="play-icon">
-          <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+  <!-- FEEDBACK -->
+  <section class="feedback-section">
+    <h2>Your feedback shapes Ritual</h2>
+    <p class="feedback-intro">As a beta tester, your input is incredibly valuable to us &mdash; it directly shapes what Ritual becomes. There are two easy ways to share your thoughts:</p>
+    <div class="feedback-methods">
+      <div class="feedback-method">
+        <div class="feedback-method-title">
+          <span class="method-icon">📳</span>
+          Shake to send feedback
         </div>
-        <span class="video-label">Video coming soon</span>
+        <p>While using the app, simply shake your phone. TestFlight will capture a screenshot and let you write feedback that comes straight to us. This is the quickest way to flag anything &mdash; a bug, a suggestion, or something you love.</p>
+      </div>
+      <div class="feedback-method">
+        <div class="feedback-method-title">
+          <span class="method-icon">✉️</span>
+          Email us directly
+        </div>
+        <p>Prefer to send screenshots or longer messages? Email us anytime at <a href="mailto:hello@ritualhabits.com.au">hello@ritualhabits.com.au</a>. We read everything.</p>
       </div>
     </div>
+    <p class="feedback-closing">Every piece of feedback helps us build a better experience for families like yours. Don't hold back &mdash; we want to hear it all.</p>
   </section>
+
+  <!-- VIDEO BANNER -->
+  <div class="video-banner">
+    <div class="video-banner-inner">
+      <div class="video-play-sm">
+        <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+      </div>
+      <span class="video-banner-text">Video walkthrough coming soon</span>
+    </div>
+  </div>
 
   <!-- FOOTER -->
   <footer>
