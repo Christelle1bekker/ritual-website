@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Get started with Ritual — download the app, place your tiles, and build habits that stick.">
+  <title>Get Started — Ritual</title>
+  <link rel="icon" type="image/png" href="/images/ritual-hex-icon-with-r.png">
+  <link rel="icon" type="image/svg+xml" href="/images/ritual-hex-icon-with-r.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --stone-50: #fafaf9;
+      --stone-100: #f5f5f4;
+      --stone-200: #e7e5e4;
+      --stone-300: #d6d3d1;
+      --stone-400: #a8a29e;
+      --stone-500: #78716c;
+      --stone-600: #57534e;
+      --stone-700: #44403c;
+      --stone-800: #292524;
+      --stone-900: #1c1917;
+      --warm-cream: #fdf8f3;
+      --warm-peach: #fef0e4;
+      --accent: #C17B4E;
+      --accent-deep: #a8633a;
+      --accent-light: #f5c7a0;
+      --sage: #8a9a7b;
+      --sage-light: #dde5d7;
+      --radius: 12px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: var(--stone-800);
+      background: var(--warm-cream);
+      overflow-x: hidden;
+      line-height: 1.65;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 1.25rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(253, 248, 243, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(0,0,0,0.04);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      line-height: 1;
+    }
+
+    .nav-logo img {
+      height: 28px;
+      width: auto;
+      display: block;
+    }
+
+    .nav-back {
+      color: var(--stone-500);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s ease;
+    }
+
+    .nav-back:hover {
+      color: var(--stone-800);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 5rem 2rem 4rem;
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .hero-hex {
+      width: 72px;
+      height: 72px;
+      margin: 0 auto 2rem;
+    }
+
+    .hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2rem, 5vw, 2.75rem);
+      color: var(--stone-900);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    .hero-sub {
+      font-size: 1.1rem;
+      color: var(--stone-500);
+      line-height: 1.7;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    /* ── DOWNLOAD SECTION ── */
+    .download-section {
+      padding: 0 2rem 4rem;
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .step-label {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .download-section h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.5rem;
+      color: var(--stone-900);
+      margin-bottom: 1rem;
+    }
+
+    .download-section p {
+      color: var(--stone-500);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--accent);
+      color: white;
+      padding: 1.1rem 2.5rem;
+      border-radius: 100px;
+      text-decoration: none;
+      font-size: 1.15rem;
+      font-weight: 600;
+      transition: background 0.2s ease, transform 0.15s ease;
+      box-shadow: 0 4px 20px rgba(193, 123, 78, 0.35);
+    }
+
+    .download-btn:hover {
+      background: var(--accent-deep);
+      transform: translateY(-1px);
+    }
+
+    .download-btn:active {
+      transform: translateY(0);
+    }
+
+    .download-note {
+      margin-top: 1rem;
+      font-size: 0.82rem;
+      color: var(--stone-400);
+      line-height: 1.6;
+    }
+
+    /* ── HOW IT WORKS ── */
+    .how-section {
+      padding: 4rem 2rem;
+      background: white;
+    }
+
+    .how-inner {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .how-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .how-header h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.5rem;
+      color: var(--stone-900);
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .step {
+      text-align: center;
+      padding: 1.5rem 1rem;
+    }
+
+    .step-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--warm-peach);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+      font-size: 1.5rem;
+    }
+
+    .step h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.1rem;
+      color: var(--stone-900);
+      margin-bottom: 0.5rem;
+    }
+
+    .step p {
+      font-size: 0.88rem;
+      color: var(--stone-500);
+      line-height: 1.6;
+    }
+
+    /* ── VIDEO PLACEHOLDER ── */
+    .video-section {
+      padding: 4rem 2rem;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .video-container {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%; /* 16:9 */
+      background: var(--stone-100);
+      border-radius: var(--radius);
+      border: 1px solid var(--stone-200);
+      overflow: hidden;
+    }
+
+    .video-inner {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .play-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 16px rgba(193, 123, 78, 0.3);
+    }
+
+    .play-icon svg {
+      width: 24px;
+      height: 24px;
+      fill: white;
+      margin-left: 3px;
+    }
+
+    .video-label {
+      font-size: 0.9rem;
+      color: var(--stone-400);
+      font-weight: 500;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--stone-900);
+      color: var(--stone-400);
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+
+    .footer-inner {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .footer-logo {
+      margin-bottom: 1rem;
+      line-height: 1;
+    }
+
+    .footer-logo img {
+      height: 20px;
+      width: auto;
+      display: inline-block;
+      filter: brightness(0) invert(1);
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      list-style: none;
+      margin-bottom: 1rem;
+    }
+
+    .footer-links a {
+      color: var(--stone-400);
+      text-decoration: none;
+      font-size: 0.82rem;
+      transition: color 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      color: white;
+    }
+
+    .footer-copy {
+      font-size: 0.75rem;
+      color: var(--stone-500);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.25rem; }
+      .nav-logo img { height: 24px; }
+
+      .hero { padding: 3.5rem 1.5rem 3rem; }
+      .hero-hex { width: 60px; height: 60px; }
+
+      .download-section { padding: 0 1.5rem 3rem; }
+
+      .steps {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+      }
+
+      .how-section { padding: 3rem 1.5rem; }
+
+      .video-section { padding: 3rem 1.5rem; }
+
+      footer { padding: 2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="/" class="nav-logo"><img src="/images/ritual-logo-terracotta.svg" alt="Ritual"></a>
+    <a href="/" class="nav-back">ritualhabits.com.au</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <img src="/images/ritual-hex-icon-with-r.svg" alt="Ritual hex tile" class="hero-hex">
+    <h1>Welcome to Ritual</h1>
+    <p class="hero-sub">You've just scanned your first tile. Here's how to get started.</p>
+  </section>
+
+  <!-- STEP 1: DOWNLOAD -->
+  <section class="download-section">
+    <span class="step-label">Step 1</span>
+    <h2>Download the app</h2>
+    <p>Ritual is currently in beta on iOS. Tap the button below to join via TestFlight, Apple's free testing app. If you don't have TestFlight installed, you'll be prompted to download it automatically.</p>
+    <a href="https://testflight.apple.com/join/9PUW7ADZ" class="download-btn">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Join the Beta on TestFlight
+    </a>
+    <p class="download-note">Free to install. Requires an iPhone running iOS 16 or later.</p>
+  </section>
+
+  <!-- STEP 2: HOW IT WORKS -->
+  <section class="how-section">
+    <div class="how-inner">
+      <div class="how-header">
+        <span class="step-label">Step 2</span>
+        <h2>How it works</h2>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-icon">📍</div>
+          <h3>Place your tiles</h3>
+          <p>Stick a tile wherever the habit happens — the bathroom mirror, the fridge, the front door.</p>
+        </div>
+        <div class="step">
+          <div class="step-icon">📱</div>
+          <h3>Tap to log</h3>
+          <p>Walk up, tap your phone on the tile, done. One second and the habit is logged.</p>
+        </div>
+        <div class="step">
+          <div class="step-icon">👨‍👩‍👧‍👦</div>
+          <h3>Track together</h3>
+          <p>The whole family sees progress in real time. Streaks build momentum, points keep everyone motivated.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO PLACEHOLDER -->
+  <section class="video-section">
+    <div class="video-container">
+      <div class="video-inner">
+        <div class="play-icon">
+          <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+        </div>
+        <span class="video-label">Video coming soon</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo"><img src="/images/ritual-logo-terracotta.svg" alt="Ritual"></div>
+      <ul class="footer-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/privacy">Privacy</a></li>
+        <li><a href="/terms">Terms</a></li>
+      </ul>
+      <p class="footer-copy">&copy; 2026 Ritual. Melbourne, Australia.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -4,5 +4,8 @@
   "description": "Ritual landing page",
   "scripts": {
     "start": "npx serve public"
+  },
+  "devDependencies": {
+    "serve": "^14.2.6"
   }
 }

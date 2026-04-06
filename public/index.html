@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Ritual — Build habits that stick. Beautiful physical tiles meet a smart app to help families and individuals turn daily intentions into automatic routines.">
   <title>Ritual — Habits that stick</title>
+  <link rel="icon" type="image/png" href="/images/ritual-hex-icon-with-r.png">
+  <link rel="icon" type="image/svg+xml" href="/images/ritual-hex-icon-with-r.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
@@ -65,11 +67,16 @@
     }
 
     .nav-logo {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.5rem;
-      color: var(--stone-900);
+      display: flex;
+      align-items: center;
       text-decoration: none;
-      letter-spacing: -0.02em;
+      line-height: 1;
+    }
+
+    .nav-logo img {
+      height: 28px;
+      width: auto;
+      display: block;
     }
 
     .nav-cta {
@@ -782,9 +789,14 @@
     }
 
     .footer-logo {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.25rem;
-      color: white;
+      line-height: 1;
+    }
+
+    .footer-logo img {
+      height: 22px;
+      width: auto;
+      display: block;
+      filter: brightness(0) invert(1);
     }
 
     .footer-links {
@@ -801,6 +813,27 @@
     }
 
     .footer-links a:hover { color: white; }
+
+    .footer-legal {
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+      margin-top: 0.5rem;
+    }
+
+    .footer-legal a {
+      color: var(--stone-500);
+      text-decoration: none;
+      font-size: 0.75rem;
+      transition: color 0.2s ease;
+    }
+
+    .footer-legal a:hover { color: white; }
+
+    .footer-legal-sep {
+      color: var(--stone-600);
+      font-size: 0.75rem;
+    }
 
     .footer-copy {
       font-size: 0.8rem;
@@ -1011,7 +1044,7 @@
     /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
       nav { padding: 1rem 1.25rem; }
-      .nav-logo { font-size: 1.25rem; }
+      .nav-logo img { height: 24px; }
 
       .hero { padding: 7rem 1.5rem 5rem; min-height: 90vh; }
 
@@ -1061,7 +1094,7 @@
 
   <!-- NAV -->
   <nav>
-    <a href="#" class="nav-logo">Ritual</a>
+    <a href="#" class="nav-logo"><img src="/images/ritual-logo-terracotta.svg" alt="Ritual"></a>
     <a href="#waitlist" class="nav-cta">Join the waitlist</a>
   </nav>
 
@@ -1418,7 +1451,7 @@
   <!-- FOOTER -->
   <footer>
     <div class="footer-inner">
-      <div class="footer-logo">Ritual</div>
+      <div class="footer-logo"><img src="/images/ritual-logo-terracotta.svg" alt="Ritual"></div>
       <ul class="footer-links">
         <li><a href="#how">How it works</a></li>
         <li><a href="#why">Why tiles</a></li>
@@ -1426,6 +1459,11 @@
         <li><a href="#faq">FAQ</a></li>
         <li><a href="#waitlist">Waitlist</a></li>
       </ul>
+      <div class="footer-legal">
+        <a href="/privacy">Privacy Policy</a>
+        <span class="footer-legal-sep">·</span>
+        <a href="/terms">Terms of Use</a>
+      </div>
       <p class="footer-copy">&copy; 2026 Ritual. Melbourne, Australia.</p>
     </div>
   </footer>
