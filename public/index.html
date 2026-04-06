@@ -74,7 +74,7 @@
     }
 
     .nav-logo img {
-      height: 28px;
+      height: 46px;
       width: auto;
       display: block;
     }
@@ -341,9 +341,13 @@
       align-items: center;
       justify-content: center;
       margin: 0 auto 1.75rem;
-      font-size: 2.5rem;
       position: relative;
       z-index: 1;
+    }
+
+    .step-icon svg {
+      width: 48px;
+      height: 48px;
     }
 
     .step:nth-child(1) .step-icon { background: var(--warm-peach); }
@@ -554,8 +558,12 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.5rem;
       margin-bottom: 1.5rem;
+    }
+
+    .use-card-icon svg {
+      width: 32px;
+      height: 32px;
     }
 
     .use-card:nth-child(1) .use-card-icon { background: rgba(224, 122, 58, 0.2); }
@@ -1044,7 +1052,7 @@
     /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
       nav { padding: 1rem 1.25rem; }
-      .nav-logo img { height: 24px; }
+      .nav-logo img { height: 38px; }
 
       .hero { padding: 7rem 1.5rem 5rem; min-height: 90vh; }
 
@@ -1133,26 +1141,26 @@
         <div class="step">
           <div class="step-icon">
             <span class="step-num">1</span>
-            📍
+            <svg viewBox="0 0 36 36" fill="none" stroke="#C17B4E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="18,3 31.5,10.5 31.5,25.5 18,33 4.5,25.5 4.5,10.5"/></svg>
           </div>
           <h3>Stick a tile</h3>
-          <p>Place a small tile wherever the habit happens — the bathroom mirror, the fridge, the front door. Beautiful for adults, fun 3D icons for kids.</p>
+          <p>Place a tile wherever the habit happens — the bathroom mirror, the fridge, the front door.</p>
         </div>
         <div class="step">
           <div class="step-icon">
             <span class="step-num">2</span>
-            📱
+            <svg viewBox="0 0 36 36" fill="none" stroke="#6b7f5e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="10" y="4" width="16" height="28" rx="3"/><line x1="16" y1="28" x2="20" y2="28"/><path d="M6 18 C3 16 3 12 6 10" opacity="0.5"/><path d="M30 18 C33 16 33 12 30 10" opacity="0.5"/><path d="M3.5 20 C-0.5 17 -0.5 11 3.5 8" opacity="0.3"/><path d="M32.5 20 C36.5 17 36.5 11 32.5 8" opacity="0.3"/></svg>
           </div>
           <h3>Tap your phone</h3>
-          <p>Walk up, tap, done. Your phone recognises the tile instantly. One second and the habit is logged.</p>
+          <p>Hold the back of your phone against the tile — just like tap-and-pay. One tap and the habit is instantly logged.</p>
         </div>
         <div class="step">
           <div class="step-icon">
             <span class="step-num">3</span>
-            🔥
+            <svg viewBox="0 0 36 36" fill="none"><rect x="16" y="22" width="4" height="10" rx="1" fill="#8B6F47"/><ellipse cx="18" cy="15" rx="11" ry="10" fill="#6B8E5A"/><ellipse cx="12" cy="13" rx="7" ry="7" fill="#7A9E69" opacity="0.7"/><ellipse cx="24" cy="14" rx="6" ry="6" fill="#5E7E4E" opacity="0.5"/><ellipse cx="18" cy="10" rx="5" ry="4.5" fill="#7A9E69" opacity="0.5"/></svg>
           </div>
-          <h3>Watch streaks grow</h3>
-          <p>Streaks build momentum. Points stack up. The whole family sees progress in real time.</p>
+          <h3>Watch your habits grow</h3>
+          <p>Streaks build momentum. Kids watch their own little tree grow with every habit completed. The whole family tracks progress together.</p>
         </div>
       </div>
     </div>
@@ -1189,8 +1197,6 @@
         </div>
         <div class="why-visual reveal">
           <div class="why-card">
-            <div class="floating-tile" style="top:-20px;right:-20px;">🪥</div>
-            <div class="floating-tile" style="bottom:-16px;left:-16px;">💊</div>
             <div class="stat-big">58%</div>
             <div class="stat-label">higher success rate</div>
             <p class="stat-desc">People who linked habits to physical cues and locations had significantly higher success rates than those who relied on app reminders alone.</p>
@@ -1211,7 +1217,7 @@
       </div>
       <div class="use-cards reveal">
         <div class="use-card">
-          <div class="use-card-icon">👨‍👩‍👧‍👦</div>
+          <div class="use-card-icon"><svg viewBox="0 0 32 32" fill="none"><circle cx="11" cy="10" r="4" fill="#C17B4E" opacity="0.85"/><circle cx="21" cy="10" r="4" fill="#C17B4E" opacity="0.6"/><circle cx="16" cy="22" r="3" fill="#C17B4E" opacity="0.45"/><line x1="11" y1="14" x2="11" y2="19" stroke="#C17B4E" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/><line x1="21" y1="14" x2="21" y2="19" stroke="#C17B4E" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/><line x1="16" y1="25" x2="16" y2="28" stroke="#C17B4E" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/></svg></div>
           <h3>Families</h3>
           <p>
             Everyone taps in. Kids earn points and redeem rewards (with parent approval). 
@@ -1227,7 +1233,7 @@
           </div>
         </div>
         <div class="use-card">
-          <div class="use-card-icon">🧘</div>
+          <div class="use-card-icon"><svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="9" r="4.5" fill="#8a9a7b" opacity="0.85"/><line x1="16" y1="13.5" x2="16" y2="22" stroke="#8a9a7b" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/><path d="M10 28 L16 22 L22 28" stroke="#8a9a7b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.5"/></svg></div>
           <h3>Individuals</h3>
           <p>
             No complexity, no family features in the way. 
