@@ -781,6 +781,19 @@
       font-weight: 500;
     }
 
+    .form-error {
+      display: none;
+      margin-top: 0.75rem;
+      font-size: 0.85rem;
+      color: #b4361e;
+    }
+
+    .waitlist-form input:disabled,
+    .waitlist-form button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
     /* ── FOOTER ── */
     footer {
       background: var(--stone-900);
@@ -1448,6 +1461,7 @@
         <button type="submit" class="btn-primary">Join →</button>
       </form>
       <p class="waitlist-privacy">No spam. Just one email when we launch.</p>
+      <div class="form-error" id="form-error"></div>
       <div class="form-success" id="form-success">
         You're on the list! We'll be in touch soon.
       </div>
@@ -1497,14 +1511,64 @@
     reveals.forEach(el => observer.observe(el));
 
     // Waitlist form
-    const form = document.getElementById('waitlist-form');
-    const success = document.getElementById('form-success');
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      // In production, this would POST to Supabase or Formspree
-      form.style.display = 'none';
-      success.style.display = 'block';
-    });
+    (() => {
+      const form = document.getElementById('waitlist-form');
+      const success = document.getElementById('form-success');
+      const errorEl = document.getElementById('form-error');
+      const input = form.querySelector('input[type="email"]');
+      const button = form.querySelector('button[type="submit"]');
+      const originalButtonText = button.textContent;
+
+      const showError = (msg) => {
+        errorEl.textContent = msg;
+        errorEl.style.display = 'block';
+      };
+      const clearError = () => {
+        errorEl.textContent = '';
+        errorEl.style.display = 'none';
+      };
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        clearError();
+
+        const email = (input.value || '').trim();
+        if (!email) {
+          showError('Please enter your email address.');
+          return;
+        }
+
+        input.disabled = true;
+        button.disabled = true;
+        button.textContent = 'Joining...';
+
+        try {
+          const res = await fetch('/api/waitlist', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email })
+          });
+
+          let data = {};
+          try { data = await res.json(); } catch (_) {}
+
+          if (res.ok && data.ok) {
+            form.style.display = 'none';
+            errorEl.style.display = 'none';
+            success.style.display = 'block';
+            return;
+          }
+
+          showError(data.error || 'Something went wrong. Please try again.');
+        } catch (err) {
+          showError('Network error. Please check your connection and try again.');
+        } finally {
+          input.disabled = false;
+          button.disabled = false;
+          button.textContent = originalButtonText;
+        }
+      });
+    })();
 
     // Nav background on scroll
     const nav = document.querySelector('nav');
