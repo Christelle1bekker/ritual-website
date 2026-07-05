@@ -1,0 +1,24 @@
+/* Self-hosted fonts (latin subsets, variable weight where available).
+   Previously loaded from fonts.googleapis.com — self-hosted so page views
+   send no visitor data to Google. */
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url(/fonts/dm-sans-latin.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'DM Sans';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/dm-sans-italic-latin.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'DM Serif Display';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/dm-serif-display-latin.woff2) format('woff2');
+}
