@@ -32,6 +32,11 @@
     .effective-date {
       color: var(--text-light);
       font-size: 0.9rem;
+      margin-bottom: 0.25rem;
+    }
+    .doc-crosslink {
+      color: var(--text-light);
+      font-size: 0.9rem;
       margin-bottom: 2.5rem;
     }
     h2 {
@@ -39,6 +44,12 @@
       font-weight: 600;
       margin-top: 2rem;
       margin-bottom: 0.75rem;
+    }
+    h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
     }
     p, li {
       font-size: 0.95rem;
@@ -58,6 +69,20 @@
       padding: 1.25rem;
       margin-top: 1.5rem;
     }
+    .table-wrap { overflow-x: auto; margin-bottom: 1rem; }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      font-size: 0.9rem;
+    }
+    th, td {
+      border: 1px solid var(--border);
+      padding: 0.5rem 0.65rem;
+      text-align: left;
+      vertical-align: top;
+      line-height: 1.5;
+    }
+    th { background: #f7f8fa; font-weight: 600; }
     .back-link {
       display: inline-flex;
       align-items: center;
@@ -78,88 +103,153 @@
     <a href="/" class="back-link">← <img src="/images/ritual-logo-terracotta.svg" alt="Ritual"></a>
 
     <h1>Privacy Policy</h1>
-    <p class="effective-date">Effective date: April 2026</p>
+    <p class="effective-date">Effective from: 5 July 2026 · Last updated: 5 July 2026</p>
+    <p class="doc-crosslink">Related: <a href="/terms">Terms of Use</a></p>
 
-    <p>Ritual ("we," "us," or "our") is operated by Christelle and Willem Bekker (ABN 20 917 156 101). This Privacy Policy explains how we collect, use, store, and share information when you use the Ritual mobile application and associated services (collectively, the "Service").</p>
+    <p>This policy explains what information Ritual collects, why, and what we do with it, when you use the Ritual mobile application, NFC tiles, and website (together, the "Service"). We have tried to keep it short and readable, because we actually want you to read it.</p>
 
-    <p>By using the Service, you agree to the collection and use of information in accordance with this policy. If you do not agree, please do not use the Service.</p>
+    <p>Ritual is available in Australia, New Zealand, the United States, and South Africa. It is not offered in the European Union or the United Kingdom, and this policy does not provide EU/UK data-protection rights.</p>
 
-    <h2>1. Information We Collect</h2>
-    <p>We collect the following types of information:</p>
+    <h2>1. Who we are</h2>
+    <p>Ritual is operated by Bekker Labs Pty Ltd (ACN 699 280 012, ABN 79 699 280 012) ("Bekker Labs," "we," "us," "our"), based in Melbourne, Victoria, Australia.</p>
+    <p>You can reach us about privacy at <a href="mailto:hello@ritualhabits.com.au">hello@ritualhabits.com.au</a>.</p>
 
-    <p><strong>Account and family information:</strong> When you set up a family on Ritual, we collect family member names (including children's names), a family PIN used for authentication, and profile preferences. Family accounts are created and managed by a parent or guardian.</p>
-
-    <p><strong>Habit and usage data:</strong> We collect information about the habits you create, track, and complete, including habit names, categories, schedules, completion timestamps, streaks, and points. This data is core to the Service's functionality.</p>
-
-    <p><strong>Device information:</strong> We may collect device identifiers, operating system version, app version, and device type to support the Service's operation and troubleshoot issues.</p>
-
-    <p><strong>Push notification tokens:</strong> If you enable push notifications, we collect device tokens provided by Apple Push Notification Service (APNs) to deliver reminders.</p>
-
-    <p><strong>NFC tile data:</strong> If you use Ritual NFC tiles, we store the unique identifier (UID) of each tile and its association with a habit. No personal data is stored on the physical tile itself — tiles contain only a URL that opens the app.</p>
-
-    <p><strong>Subscription and payment information:</strong> If you subscribe to a paid plan, payment is processed by Apple through the App Store. We do not collect, process, or store your credit card details or payment information. We receive confirmation of your subscription status from Apple.</p>
-
-    <h2>2. How We Use Your Information</h2>
-    <p>We use the information we collect to:</p>
+    <h2>2. The short version</h2>
     <ul>
-      <li>Provide, operate, and improve the Service</li>
-      <li>Enable habit tracking, progress reporting, and family coordination features</li>
-      <li>Send push notifications and reminders you have opted into</li>
-      <li>Associate NFC tiles with habits within your family account</li>
-      <li>Manage your subscription and provide customer support</li>
-      <li>Monitor and analyse usage patterns in aggregated form to improve the Service</li>
-      <li>Comply with legal obligations</li>
+      <li>Ritual is a household habit tracker. A parent or other adult owns the account; the whole family's habits live in it.</li>
+      <li>We collect the minimum needed to run it: your account email, your family name and PIN, the profiles you create (a first name, a colour, an adult/kid marker), your habits, and who completed what on which day.</li>
+      <li>About children we store a first name and their habit ticks — no date of birth, no photos, no messages. A parent enters and controls all of it.</li>
+      <li>No advertising, no tracking SDKs, no analytics services, no selling your information. Our website sets no tracking cookies.</li>
+      <li>You can remove any family member's profile in the app, and you can have your whole account deleted by emailing us.</li>
     </ul>
 
-    <h2>3. Children's Privacy</h2>
-    <p>Ritual is a family-oriented app. Children's accounts are not independent — they are created, managed, and supervised by a parent or guardian. Children do not sign up directly, provide personal information independently, or have unsupervised access to account settings.</p>
-
-    <p>We collect children's first names and their habit completion data solely for the purpose of providing the family habit tracking service. This data is entered and controlled by the parent or guardian. If you are a parent or guardian and wish to review, modify, or delete your child's data, please contact us.</p>
-
-    <h2>4. How We Store and Protect Your Data</h2>
-    <p>Your data is stored securely using Supabase, a hosted database platform, with row-level security policies that ensure each family's data is isolated and accessible only to authenticated members of that family. Data is encrypted in transit using TLS and at rest within Supabase's infrastructure.</p>
-
-    <p>While we take reasonable measures to protect your information, no method of electronic storage or transmission is 100% secure. We cannot guarantee absolute security.</p>
-
-    <h2>5. Data Sharing and Disclosure</h2>
-    <p>We do not sell your personal information to third parties.</p>
-
-    <p>We may share your information in the following circumstances:</p>
-
-    <p><strong>Service providers:</strong> We use third-party services to operate the app, including Supabase (database and authentication), Vercel (hosting), Apple (push notifications and subscription management), and Capgo (app updates). These providers process data on our behalf and are bound by their own privacy and security commitments.</p>
-
-    <p><strong>Aggregated and de-identified data:</strong> We may share or sell aggregated, anonymised, and de-identified data that cannot reasonably be used to identify any individual. This may include statistical data about habit trends, usage patterns, completion rates, and demographic insights (for example, the most common habits tracked by Australian families). This data may be shared for research, analytics, or commercial purposes.</p>
-
-    <p><strong>Business transfers:</strong> If Ritual is sold, merged, acquired, or undergoes a change of ownership, your information may be transferred to the new owner as part of that transaction. The new owner would be bound by the commitments made in this Privacy Policy, or you would be notified of any material changes.</p>
-
-    <p><strong>Legal requirements:</strong> We may disclose your information if required by law, regulation, legal process, or government request, or to protect the rights, safety, or property of Ritual, our users, or others.</p>
-
-    <h2>6. Your Rights and Choices</h2>
-    <p>You have the right to:</p>
+    <h2>3. Information we collect, and from whom</h2>
+    <p><strong>From the account holder (an adult):</strong></p>
     <ul>
-      <li>Access the personal information we hold about you</li>
-      <li>Request correction of inaccurate information</li>
-      <li>Request deletion of your account and associated data</li>
-      <li>Opt out of push notifications at any time through your device settings</li>
-      <li>Withdraw from the Service at any time by deleting your account</li>
+      <li><strong>Account details.</strong> An email address and password if you create an account, and your family name and a family PIN used to sign in to your family and switch between profiles.</li>
+      <li><strong>Family profiles.</strong> For each member of your household you add: a first name (or nickname — a nickname is fine), a colour you pick, and whether the profile is an adult or a kid. The profile's avatar is simply the first letter of the name. There is no field for a date of birth, and no way to add a photo.</li>
+      <li><strong>Habits and activity.</strong> The habits you create (name, icon, schedule, reminder time), which profile completed which habit on which day, points, streaks, and any rewards you set up.</li>
+      <li><strong>Push notification token.</strong> If you turn on reminders, Apple issues the app a push token for the device. We store that token so we can send the reminders you set. It identifies a device, not a person.</li>
+      <li><strong>NFC tiles.</strong> Each tile's unique identifier and which habit you've linked it to. Tiles themselves store no personal data — only an identifier and a link that opens the app.</li>
+    </ul>
+    <p><strong>From website visitors:</strong> if you join the waitlist we collect the email address you enter, and nothing else. Our website has no other forms, sets no tracking cookies, and uses no analytics.</p>
+    <p><strong>What we do not collect:</strong> dates of birth, photos or images, location data, advertising identifiers, biometrics, contact lists, browsing history, or anything from your device beyond what is listed above. The app contains no analytics, crash-reporting, or tracking SDKs, and shows no ads.</p>
+
+    <h2>4. How and why we use information</h2>
+    <p>We use your information only to provide and operate Ritual:</p>
+    <ul>
+      <li>to create and manage your family account and let you sign in;</li>
+      <li>to record and show your family's habits, completions, streaks, points, and rewards;</li>
+      <li>to send the reminders and notifications you have asked for;</li>
+      <li>to link your NFC tiles to your habits;</li>
+      <li>to respond to you, provide support, and keep the service secure and working;</li>
+      <li>to tell waitlist subscribers about Ritual's availability;</li>
+      <li>to comply with our legal obligations.</li>
+    </ul>
+    <p>We do not sell personal information. We do not use your information for advertising or cross-context behavioural advertising, we do not build profiles of you or your children, and Ritual has no AI features — none of your content is processed by or used to train any AI model.</p>
+
+    <h2>5. Children's information</h2>
+    <p>This is the part of Ritual that matters most, so we want to be precise about it.</p>
+    <ul>
+      <li><strong>Ritual is a household tool that belongs to a parent.</strong> The account holder must be an adult. Children do not create accounts, do not sign in, and do not need their own phones or devices. A child's interaction with Ritual is a brief, supervised moment on their parent's device — tapping a tile or a button to mark a habit done.</li>
+      <li><strong>What we store about a child is exactly this:</strong> the first name (or nickname) their parent enters, an adult/kid marker, a colour their parent picks, an avatar that is the first letter of the name, points and streak counters, and which habits were completed on which days. Nothing else — no date of birth, no photos, no messages, no contact details, and no advertising or behavioural profiling of any kind.</li>
+      <li><strong>The parent provides and controls all of it.</strong> A child's information reaches us only because their parent or guardian enters it and records their activity. We rely on the parent's authority (and, where the law requires it, the parent's consent as the child's "competent person" or guardian) to handle that information. If you prefer, use a nickname or initial instead of your child's real name — the app works exactly the same.</li>
+      <li><strong>We do not knowingly collect personal information directly from children.</strong> Ritual is designed for and marketed to parents, and children cannot submit information to us on their own.</li>
+      <li><strong>You can remove a child's information at any time</strong> by removing their profile in the app — this permanently deletes the profile and its completion history — or by asking us to delete your whole account (Section 10).</li>
     </ul>
 
-    <p>To exercise any of these rights, contact us using the details below. We will respond to requests within a reasonable timeframe in accordance with applicable law.</p>
+    <h2>6. Who we share information with</h2>
+    <p>We don't sell your information and we don't share it for advertising. We use the following service providers ("processors") to run Ritual. Each may use your information only to provide its service to us and is bound by its data-processing terms:</p>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Provider</th><th>What it does for us</th><th>Where it processes data</th><th>Notes</th></tr>
+        <tr><td>Supabase</td><td>Database and sign-in</td><td>Singapore (AWS ap-southeast-1)</td><td>Stores your family's data, encrypted at rest; data-processing terms in place</td></tr>
+        <tr><td>Vercel</td><td>Hosts and serves our backend and website</td><td>United States (Washington, D.C. — iad1) for compute; global edge network for delivery</td><td>Data-processing terms in place</td></tr>
+        <tr><td>Apple</td><td>Delivers push notifications (APNs) and distributes the app</td><td>Apple's global infrastructure</td><td>Receives the device push token and the notification text (for example, a habit reminder)</td></tr>
+        <tr><td>Capgo (Digital shift OÜ)</td><td>Delivers app updates</td><td>European Union (Estonia)</td><td>Receives an anonymous device identifier and app version information only — never names, account details, or any family data</td></tr>
+      </table>
+    </div>
+    <p>We may also disclose information if the law requires it, to protect the safety of people or the security of the service, or as part of a business transfer (in which case we'll tell you).</p>
 
-    <h2>7. Account Deletion</h2>
-    <p>You may request deletion of your family account and all associated data at any time by contacting us. Upon receiving a verified deletion request, we will delete your personal information within 30 days, except where we are required to retain certain data for legal, accounting, or regulatory purposes. Aggregated, de-identified data that has already been generated will not be affected by deletion requests.</p>
+    <h2>7. International data transfers</h2>
+    <p>Ritual is operated from Australia. Your information is stored with our database provider in Singapore, our backend and website are hosted in the United States, push notifications are delivered by Apple, and app updates are delivered from the European Union (device-level information only). Where we transfer information across borders, we do so under contractual protections with each provider. Country-specific detail is in Section 11.</p>
 
-    <h2>8. Data Retention</h2>
-    <p>We retain your personal information for as long as your account is active or as needed to provide the Service. If you cancel your subscription, we will retain your account data for a reasonable period (up to 90 days) in case you wish to resubscribe, after which it will be deleted unless retention is required by law. You may request earlier deletion at any time.</p>
+    <h2>8. How long we keep information</h2>
+    <ul>
+      <li>Account and family information is kept while your account is active.</li>
+      <li>Removing a family member's profile in the app permanently deletes that profile and its completion history straight away.</li>
+      <li>When you ask us to delete your account, we delete your family's information within 30 days of verifying the request (this window covers ordinary processing time and the rotation of routine backups), except where the law requires us to keep something longer.</li>
+      <li>Waitlist email addresses are kept until we've told you about the launch, or until you ask us to remove yours — whichever comes first.</li>
+      <li>Operational logs are kept for about 30 days and then deleted, unless we're required to keep them longer.</li>
+    </ul>
 
-    <h2>9. Third-Party Links and Services</h2>
-    <p>The Service may contain links to third-party websites or services. We are not responsible for the privacy practices of those third parties. We encourage you to read their privacy policies.</p>
+    <h2>9. How we protect information</h2>
+    <ul>
+      <li>Information is encrypted in transit using TLS.</li>
+      <li>Information stored in our database is encrypted at rest by our database provider.</li>
+      <li>Access to your family's data in the app is gated by your family's sign-in, and each family sees only its own data in the app.</li>
+      <li>Access to production systems is restricted to us.</li>
+    </ul>
+    <p>No system is perfectly secure, and we don't claim certifications we don't hold. If a data breach affects you, we will notify you and the relevant regulator where the law requires.</p>
 
-    <h2>10. Changes to This Policy</h2>
-    <p>We may update this Privacy Policy from time to time. We will notify you of material changes by posting the updated policy within the app or on our website, and by updating the effective date above. Your continued use of the Service after changes are posted constitutes acceptance of the updated policy.</p>
+    <h2>10. Your choices and how to contact us</h2>
+    <p>You can review and update your family's profiles and habits in the app at any time, and remove a family member's profile (which permanently deletes it and its completion history). To delete your whole family account and all associated data, or for any other privacy request — access, correction, or deletion — email <a href="mailto:hello@ritualhabits.com.au">hello@ritualhabits.com.au</a>. We action verified deletion requests within 30 days. You can turn off push notifications at any time in your device settings. Jurisdiction-specific rights are in Section 11.</p>
 
-    <h2>11. Contact Us</h2>
+    <h2>11. Jurisdiction-specific rights and disclosures</h2>
+
+    <h3>11.1 Australia and New Zealand</h3>
+    <p><strong>Australia.</strong> We are not currently an "APP entity" under the Privacy Act 1988 (Cth) (we are a small business below the relevant turnover threshold). As a matter of practice, we handle your information consistently with the Australian Privacy Principles (APPs). You may ask us for access to the personal information we hold about you and ask us to correct it, by contacting <a href="mailto:hello@ritualhabits.com.au">hello@ritualhabits.com.au</a>. If you have a privacy concern, you can contact us first; you may also contact the Office of the Australian Information Commissioner (<a href="https://www.oaic.gov.au">oaic.gov.au</a>).</p>
+    <p><strong>New Zealand.</strong> We are subject to the Privacy Act 2020, and we handle personal information in accordance with the Information Privacy Principles (IPPs). This includes IPP 3A, which concerns telling people when we collect their information indirectly (from someone other than themselves). Information about children in Ritual is provided by their parent or guardian — the adult who owns the account and controls what is entered. We give notice through the parent rather than separately to each child, because the parent is the child's guardian, controls the child's use of the app, and is the person who decides what information to record; separate notice to young children would be neither practicable nor meaningful. You may ask us for access to your personal information and ask us to correct it. You can also contact the Office of the Privacy Commissioner (<a href="https://privacy.org.nz">privacy.org.nz</a>).</p>
+
+    <h3>11.2 United States</h3>
+    <p>Ritual is a household tool operated by parents. It is designed for and marketed to adults, and we do not knowingly collect personal information online from children under 13.</p>
+    <p><strong>Children's privacy (COPPA).</strong> The Children's Online Privacy Protection Act applies to online services directed to children, and to general-audience services that knowingly collect personal information from children under 13. Ritual's account holder is an adult; children do not create accounts, sign in, or submit information to us. The information about children in Ritual — a first name and habit-completion records — is entered and controlled by their parents within the parent's own account, on the parent's own device. The device push token exists solely to deliver reminders the parent has requested and is not used for profiling, advertising, or tracking of any kind. If you believe a child has provided us personal information outside this model, contact us at <a href="mailto:hello@ritualhabits.com.au">hello@ritualhabits.com.au</a> and we will delete it.</p>
+    <p><strong>Your California privacy rights.</strong> If you are a California resident, you have the rights below. (We honour these regardless of whether we currently meet the thresholds that make a business formally subject to the California Consumer Privacy Act, because they reflect how we operate anyway.)</p>
+    <ul>
+      <li>Right to know what personal information we collect, why, and who we share it with — this policy is that disclosure.</li>
+      <li>Right to delete the personal information we hold about you.</li>
+      <li>Right to correct inaccurate personal information.</li>
+      <li>Right to opt out of the "sale" or "sharing" of your personal information. Under California law, "sell" means disclosing personal information for money or other value, and "share" means disclosing it for cross-context behavioural advertising. We do not sell or share your personal information, so there is nothing to opt out of.</li>
+      <li>Right to non-discrimination — we will not treat you differently for exercising any of these rights.</li>
+    </ul>
+    <p>To exercise any of these rights, contact <a href="mailto:hello@ritualhabits.com.au">hello@ritualhabits.com.au</a>. We will verify your request before acting on it.</p>
+    <p><strong>Notice at collection.</strong> We collect the following categories of personal information, in each case only to provide and operate Ritual, and we retain it as described in Section 8:</p>
+    <ul>
+      <li>Identifiers (family name, member first names, account email, device push token) — to run your family account and deliver reminders.</li>
+      <li>Customer records / contact information (email) — to communicate with you and provide support.</li>
+      <li>Internet and electronic activity (which habits were completed on which days, within your account) — to provide the habit-tracking service itself.</li>
+    </ul>
+    <p>We do not collect sensitive personal information, precise geolocation, or biometric information. We do not sell or share any of these categories, and we do not use personal information for cross-context behavioural advertising.</p>
+
+    <h3>11.3 South Africa</h3>
+    <p>This section uses the terms of the Protection of Personal Information Act, 2013 ("POPIA"). Under POPIA, we are the "responsible party" (the party that decides why and how your personal information is processed), the people whose information we process are "data subjects," and the providers in Section 6 that process information on our behalf are "operators."</p>
+    <p><strong>Responsible party.</strong> Bekker Labs Pty Ltd (ACN 699 280 012, ABN 79 699 280 012). Contact: <a href="mailto:hello@ritualhabits.com.au">hello@ritualhabits.com.au</a>.</p>
+    <p><strong>Children's information.</strong> POPIA generally prohibits processing a child's personal information. We rely on the exception in section 35(1)(a): we process a child's personal information with the prior consent of a competent person — the child's parent or guardian, who is our account holder, enters the child's profile, and controls the child's supervised use of the app.</p>
+    <p><strong>What we tell you when we collect information (section 18).</strong></p>
+    <ul>
+      <li>Purpose: we collect your information to provide Ritual — to run your family account, record your family's habits and completions, and send the reminders you set.</li>
+      <li>Recipients: we share information with the operators listed in Section 6 (Supabase, Vercel, Apple, and Capgo).</li>
+      <li>Voluntary: providing your information is voluntary, but without it we cannot provide the service.</li>
+      <li>Your rights and complaints: you may access and correct your information (below), and you may lodge a complaint with the Information Regulator (South Africa): <a href="mailto:POPIAComplaints@inforegulator.org.za">POPIAComplaints@inforegulator.org.za</a>, with formal complaints lodged via the eService portal at <a href="https://inforegulator.org.za">https://inforegulator.org.za</a>.</li>
+    </ul>
+    <p><strong>Cross-border transfer (section 72).</strong> Our operators are all located outside South Africa: your information is stored in Singapore (Supabase) and processed in the United States (Vercel, which hosts and runs the service, and Apple, which delivers push notifications), and app updates are delivered from the European Union (Capgo, which receives only anonymous device-level information). We make these transfers on the basis that each of these operators is bound by contractual terms that provide a level of protection substantially similar to POPIA's conditions for lawful processing, including substantially similar restrictions on any further transfer of the information to others.</p>
+    <p><strong>Your rights (sections 23–25).</strong> You may:</p>
+    <ul>
+      <li>access the personal information we hold about you;</li>
+      <li>request correction of information that is inaccurate, irrelevant, excessive, out of date, incomplete, misleading, or unlawfully obtained;</li>
+      <li>request deletion of your information.</li>
+    </ul>
+    <p>To exercise these rights, contact <a href="mailto:hello@ritualhabits.com.au">hello@ritualhabits.com.au</a>.</p>
+
+    <h2>12. Changes to this policy</h2>
+    <p>We may update this policy as Ritual changes or as the law changes. If we make a material change, we'll update the "Last updated" date above and tell you in the app or on our website before the change takes effect for you.</p>
+
+    <h2>13. Contact us</h2>
     <div class="contact-box">
-      <p>If you have questions, concerns, or requests regarding this Privacy Policy or your personal data, please contact us at:</p>
+      <p>Questions, concerns, or requests about this Privacy Policy or your personal data:</p>
       <p><strong>Email:</strong> <a href="mailto:hello@ritualhabits.com.au">hello@ritualhabits.com.au</a></p>
-      <p style="margin-bottom:0;"><strong>Ritual</strong><br />Operated by Christelle and Willem Bekker<br />ABN: 20 917 156 101<br />Melbourne, Victoria, Australia</p>
+      <p style="margin-bottom:0;"><strong>Ritual</strong><br />Operated by Bekker Labs Pty Ltd<br />ACN 699 280 012 · ABN 79 699 280 012<br />Melbourne, Victoria, Australia</p>
+    </div>
+  </div>
+</body>
+</html>
